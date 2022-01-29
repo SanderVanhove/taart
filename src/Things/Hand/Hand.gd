@@ -10,6 +10,8 @@ onready var _visual: Node2D = $Visual
 onready var _slap_timer: Timer = $SlapTimer
 onready var _hit_box: Area2D = $Visual/Hand/Hitbox
 onready var _hand: Node2D = $Visual/Hand
+onready var _slap_lines1: Node2D = $Visual/Hand/SlapLines1
+onready var _slap_lines2: Node2D = $Visual/Hand/SlapLines2
 
 
 func _ready():
@@ -66,3 +68,20 @@ func enable_hitbox():
 	
 	_hit_box.set_collision_layer_bit(0, false)
 	_hit_box.set_collision_mask_bit(0, false)
+
+
+func _on_Hitbox_area_entered(area):
+	if _slap_lines1.visible or _slap_lines2.visible:
+		return
+	
+	_slap_lines1.visible = true
+	
+	for i in range(3):
+		_slap_timer.start()
+		yield(_slap_timer, "timeout")
+		
+		_slap_lines1.visible = not _slap_lines1.visible
+		_slap_lines2.visible = not _slap_lines2.visible
+	
+	_slap_lines1.visible = false
+	_slap_lines2.visible = false

@@ -31,6 +31,65 @@ collision_mask = 0
 position = Vector2( 1, -70 )
 shape = SubResource( 1 )
 
+[node name="SlapLines1" type="Node2D" parent="Visual/Hand"]
+visible = false
+
+[node name="Icon" type="Sprite" parent="Visual/Hand/SlapLines1"]
+position = Vector2( -47, -255 )
+rotation = -0.328122
+scale = Vector2( 0.28125, 1.92188 )
+texture = ExtResource( 1 )
+
+[node name="Icon2" type="Sprite" parent="Visual/Hand/SlapLines1"]
+position = Vector2( 72, -245 )
+rotation = 0.109956
+scale = Vector2( 0.28125, 1.92188 )
+texture = ExtResource( 1 )
+
+[node name="Icon4" type="Sprite" parent="Visual/Hand/SlapLines1"]
+position = Vector2( 162, -170 )
+rotation = 0.752237
+scale = Vector2( 0.28125, 1.92188 )
+texture = ExtResource( 1 )
+
+[node name="Icon3" type="Sprite" parent="Visual/Hand/SlapLines1"]
+position = Vector2( -162, -181 )
+rotation = -4.04218
+scale = Vector2( 0.28125, 1.92188 )
+texture = ExtResource( 1 )
+
+[node name="SlapLines2" type="Node2D" parent="Visual/Hand"]
+visible = false
+
+[node name="Icon" type="Sprite" parent="Visual/Hand/SlapLines2"]
+position = Vector2( -75, -250 )
+rotation = -0.328122
+scale = Vector2( 0.28125, 1.92188 )
+texture = ExtResource( 1 )
+
+[node name="Icon2" type="Sprite" parent="Visual/Hand/SlapLines2"]
+position = Vector2( 39, -247 )
+rotation = 0.328122
+scale = Vector2( 0.28125, 1.92188 )
+texture = ExtResource( 1 )
+
+[node name="Icon4" type="Sprite" parent="Visual/Hand/SlapLines2"]
+position = Vector2( 148, -186 )
+rotation = 0.893609
+scale = Vector2( 0.28125, 1.92188 )
+texture = ExtResource( 1 )
+
+[node name="Icon3" type="Sprite" parent="Visual/Hand/SlapLines2"]
+position = Vector2( -155, -168 )
+rotation = -4.1469
+scale = Vector2( 0.28125, 1.92188 )
+texture = ExtResource( 1 )
+
 [node name="SlapTimer" type="Timer" parent="."]
 wait_time = 0.25
 one_shot = true
+
+[node name="SlapLineTimer" type="Timer" parent="."]
+wait_time = 0.05
+
+[connection signal="area_entered" from="Visual/Hand/Hitbox" to="." method="_on_Hitbox_area_entered"]

@@ -44,6 +44,9 @@ func move():
 
 
 func retreat_wiggle(delta: float):
+	_area.set_collision_layer_bit(0, false)
+	_area.set_collision_mask_bit(0, false)
+	
 	delta *= 1 if randi() % 2 == 0 else -1
 	_tween.interpolate_property(_moving_part, "position:x", 0, delta, .15, Tween.TRANS_SINE, Tween.EASE_OUT)
 	_tween.start()
