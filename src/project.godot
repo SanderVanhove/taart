@@ -8,6 +8,28 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "EnemyHand",
+"language": "GDScript",
+"path": "res://Things/EnemyHand/EnemyHand.gd"
+}, {
+"base": "Node",
+"class": "ScreenShake",
+"language": "GDScript",
+"path": "res://Utils/ScreenShake.gd"
+}, {
+"base": "Camera2D",
+"class": "ShakingCamera",
+"language": "GDScript",
+"path": "res://Screens/Game/Camera2D.gd"
+} ]
+_global_script_class_icons={
+"EnemyHand": "",
+"ScreenShake": "",
+"ShakingCamera": ""
+}
+
 [application]
 
 config/name="Taart"
@@ -40,4 +62,5 @@ common/enable_pause_aware_picking=true
 quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
+environment/default_clear_color=Color( 0.890196, 0.890196, 0.890196, 1 )
 environment/default_environment="res://default_env.tres"

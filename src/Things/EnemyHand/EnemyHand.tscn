@@ -26,6 +26,7 @@ texture = ExtResource( 1 )
 position = Vector2( 0, -92 )
 
 [node name="Area2D" type="Area2D" parent="MovingPart"]
+pause_mode = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPart/Area2D"]
 shape = SubResource( 1 )

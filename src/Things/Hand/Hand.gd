@@ -1,5 +1,7 @@
 extends Node2D
 
+signal slap
+
 
 var is_slapping: bool = false
 
@@ -23,20 +25,29 @@ func _input(event):
 	
 	if is_slapping:
 		return
+		
+	emit_signal("slap")
 	
 	is_slapping = true
 	
-	_hit_box.set_collision_layer_bit(0, true)
-	_hit_box.set_collision_mask_bit(0, true)
-	
 	_visual.modulate = Color.red
+	
+	enable_hitbox()
 	
 	_slap_timer.start()
 	yield(_slap_timer, "timeout")
 	
 	_visual.modulate = Color.white
 	
+	is_slapping = false
+
+
+func enable_hitbox():
+	_hit_box.set_collision_layer_bit(0, true)
+	_hit_box.set_collision_mask_bit(0, true)
+	
+	yield(get_tree(), "idle_frame")
+	yield(get_tree(), "idle_frame")
+	
 	_hit_box.set_collision_layer_bit(0, false)
 	_hit_box.set_collision_mask_bit(0, false)
-	
-	is_slapping = false

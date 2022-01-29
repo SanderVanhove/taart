@@ -1,7 +1,11 @@
 extends Node2D
+class_name EnemyHand
+
+signal got_hit
+signal got_taart
 
 const HALF_PI: float = PI/2
-const GRAB_DIST: float = 50.0
+const GRAB_DIST: float = 100.0
 
 export var moving_speed: float = 5.0
 
@@ -12,6 +16,7 @@ var is_slapped: bool = false
 
 onready var _tween: Tween = $Tween
 onready var _moving_part: Node2D = $MovingPart
+onready var _area: Area2D = $MovingPart/Area2D
 
 
 func _process(delta):
@@ -25,10 +30,12 @@ func move():
 	
 	var vector_towards_taart = taart.global_position - _moving_part.global_position
 	
-	if vector_towards_taart.length() < GRAB_DIST:
+	if not is_slapped and not is_retreating and vector_towards_taart.length() < GRAB_DIST:
 		is_retreating = true
 		
-		retreat_wiggle()
+		retreat_wiggle(50)
+		
+		emit_signal("got_taart")
 	
 	if not is_retreating:
 		_moving_part.position.y -= moving_speed
@@ -36,15 +43,16 @@ func move():
 		_moving_part.position.y += retreat_speed
 
 
-func retreat_wiggle():
-	_tween.interpolate_property(_moving_part, "position:x", 0, 50, .15, Tween.TRANS_SINE, Tween.EASE_OUT)
+func retreat_wiggle(delta: float):
+	delta *= 1 if randi() % 2 == 0 else -1
+	_tween.interpolate_property(_moving_part, "position:x", 0, delta, .15, Tween.TRANS_SINE, Tween.EASE_OUT)
 	_tween.start()
 	
 	yield(_tween, "tween_all_completed")
 	
 	_tween.repeat = true
-	_tween.interpolate_property(_moving_part, "position:x", 50, -50, .3, Tween.TRANS_SINE, Tween.EASE_OUT)
-	_tween.interpolate_property(_moving_part, "position:x", -50, 50, .3, Tween.TRANS_SINE, Tween.EASE_IN, .3)
+	_tween.interpolate_property(_moving_part, "position:x", delta, -delta, .3, Tween.TRANS_SINE, Tween.EASE_OUT)
+	_tween.interpolate_property(_moving_part, "position:x", -delta, delta, .3, Tween.TRANS_SINE, Tween.EASE_IN, .3)
 	_tween.start()
 
 
@@ -62,6 +70,9 @@ func _on_Area2D_area_entered(area):
 		return
 	
 	is_slapped = true
+	is_retreating = true
+	
+	emit_signal("got_hit")
 	
 	var wiggle_dist: float = 20
 	var time: float = .1
@@ -77,5 +88,7 @@ func _on_Area2D_area_entered(area):
 	
 	yield(_tween, "tween_all_completed")
 	
+	retreat_wiggle(30)
+	
+	
 	is_slapped = false
-	is_retreating = true

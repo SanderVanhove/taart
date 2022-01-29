@@ -1,17 +1,40 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Things/Taart/nep_taart.png" type="Texture" id=1]
+[ext_resource path="res://Things/Taart/concept_taart.png" type="Texture" id=1]
+[ext_resource path="res://Things/Taart/Taart.gd" type="Script" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 234.214
 
 [node name="Taart" type="Node2D"]
+script = ExtResource( 2 )
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="CarryingHand" type="Node2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="Icon2" type="Sprite" parent="CarryingHand"]
+position = Vector2( 80, 524 )
+rotation = -0.247837
+scale = Vector2( 1, 12.1094 )
+texture = ExtResource( 3 )
+
+[node name="Icon" type="Sprite" parent="CarryingHand"]
+position = Vector2( 7, 160.5 )
+scale = Vector2( 6.75, 2.17188 )
+texture = ExtResource( 3 )
+
+[node name="Taart" type="Sprite" parent="CarryingHand"]
+scale = Vector2( 0.400415, 0.400415 )
+texture = ExtResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="CarryingHand/Taart"]
+scale = Vector2( 2.49741, 2.49741 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CarryingHand/Taart/Area2D"]
 shape = SubResource( 1 )
 
-[node name="CakePng13082" type="Sprite" parent="."]
-scale = Vector2( 0.166203, 0.166203 )
-texture = ExtResource( 1 )
+[node name="WalkingTween" type="Tween" parent="."]
+
+[node name="TaartTween" type="Tween" parent="."]
+repeat = true
+playback/repeat = true
