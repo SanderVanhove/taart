@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Things/Taart/nep_taart.png" type="Texture" id=1]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 234.214
+
+[node name="Taart" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 1 )
+
+[node name="CakePng13082" type="Sprite" parent="."]
+scale = Vector2( 0.166203, 0.166203 )
+texture = ExtResource( 1 )
