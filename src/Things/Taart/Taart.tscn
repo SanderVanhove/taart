@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Things/Taart/concept_taart.png" type="Texture" id=1]
 [ext_resource path="res://Things/Taart/Taart.gd" type="Script" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://Things/Candle/Candle.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 234.214
@@ -32,6 +33,12 @@ scale = Vector2( 2.49741, 2.49741 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CarryingHand/Taart/Area2D"]
 shape = SubResource( 1 )
+
+[node name="Candles" type="Node2D" parent="CarryingHand/Taart"]
+
+[node name="Candle" parent="CarryingHand/Taart/Candles" instance=ExtResource( 4 )]
+position = Vector2( 0, -152.342 )
+scale = Vector2( 4, 4 )
 
 [node name="WalkingTween" type="Tween" parent="."]
 

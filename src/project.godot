@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node2D",
+"class": "Candle",
+"language": "GDScript",
+"path": "res://Things/Candle/Candle.gd"
+}, {
+"base": "Node2D",
 "class": "EnemyHand",
 "language": "GDScript",
 "path": "res://Things/EnemyHand/EnemyHand.gd"
@@ -25,6 +30,7 @@ _global_script_classes=[ {
 "path": "res://Screens/Game/Camera2D.gd"
 } ]
 _global_script_class_icons={
+"Candle": "",
 "EnemyHand": "",
 "ScreenShake": "",
 "ShakingCamera": ""
@@ -34,7 +40,7 @@ _global_script_class_icons={
 
 config/name="Taart"
 run/main_scene="res://Screens/Game/Game.tscn"
-config/icon="res://icon.png"
+config/icon="res://Things/Taart/concept_taart.png"
 
 [display]
 

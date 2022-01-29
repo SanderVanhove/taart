@@ -4,7 +4,9 @@ var EnemyHandScene: PackedScene = preload("res://Things/EnemyHand/EnemyHand.tscn
 
 const SPAWN_MARGIN: float = 200.0
 onready var SCREEN_SIZE: Vector2 = Vector2(ProjectSettings.get("display/window/size/width"),ProjectSettings.get("display/window/size/height")) # get_viewport().size
+const GAME_DURATION: float = 10.0
 
+var time: float = 0
 
 onready var _taart: Node2D = $Taart
 onready var _enemy_hands: Node2D = $EnemyHands
@@ -15,8 +17,10 @@ onready var _stolen_taart_timer: Timer = $StolenTaartTimer
 func _ready():
 	randomize()
 
-	for child in _enemy_hands.get_children():
-		child.taart = _taart
+
+func _process(delta):
+	time += delta
+	_taart.update_time(clamp(1.0 - time / GAME_DURATION, 0, 1))
 
 
 func _on_NewEnemyTimer_timeout():

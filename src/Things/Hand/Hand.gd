@@ -8,15 +8,30 @@ var is_slapping: bool = false
 
 onready var _visual: Node2D = $Visual
 onready var _slap_timer: Timer = $SlapTimer
-onready var _hit_box: Area2D = $Hitbox
+onready var _hit_box: Area2D = $Visual/Hand/Hitbox
+onready var _hand: Node2D = $Visual/Hand
+
+
+func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 
 func _process(delta):
 	if is_slapping:
 		return
 	
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	position = get_viewport().get_mouse_position()
+	var mouse_pos: Vector2 = get_viewport().get_mouse_position()
+	if mouse_pos.x > position.x + 40:
+		_hand.rotation = lerp(_hand.rotation, PI/4, .2)
+	elif mouse_pos.x < position.x - 40:
+		_hand.rotation = lerp(_hand.rotation, -PI/4, .2)
+	else:
+		_hand.rotation = lerp(_hand.rotation, 0, .2)
+	
+	if abs((position - mouse_pos).x) <= 10:
+		position = mouse_pos
+	else:
+		position = lerp(position, mouse_pos, .4)
 	
 
 func _input(event):

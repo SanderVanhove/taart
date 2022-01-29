@@ -35,5 +35,7 @@ pause_mode = 2
 wait_time = 0.3
 one_shot = true
 
+[node name="EndTimer" type="Timer" parent="."]
+
 [connection signal="slap" from="Hand" to="." method="_on_Hand_slap"]
 [connection signal="timeout" from="NewEnemyTimer" to="." method="_on_NewEnemyTimer_timeout"]

@@ -15,6 +15,7 @@ onready var taart: Node2D = $CarryingHand/Taart
 onready var _carrying_hand: Node2D = $CarryingHand
 onready var _walking_tween: Tween = $WalkingTween
 onready var _taart_tween: Tween = $TaartTween
+onready var _candles: Node2D = $CarryingHand/Taart/Candles
 
 
 func _ready():
@@ -47,3 +48,8 @@ func start_walking():
 	_walking_tween.interpolate_property(_carrying_hand, "position:y", 0, SWAY_DIST.x, WALK_TIME/2, Tween.TRANS_SINE, Tween.EASE_IN_OUT, WALK_TIME)
 	_walking_tween.interpolate_property(_carrying_hand, "position:y", SWAY_DIST.x, 0, WALK_TIME/2, Tween.TRANS_SINE, Tween.EASE_IN_OUT, WALK_TIME * 1.5)
 	_walking_tween.start()
+
+
+func update_time(percentage: float):
+	for candle in _candles.get_children():
+		candle.percentage = percentage
