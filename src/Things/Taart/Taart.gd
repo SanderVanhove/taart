@@ -20,6 +20,10 @@ onready var _taart_tween: Tween = $TaartTween
 onready var _candles: Node2D = $CarryingHand/Taart/Candles
 onready var _face: HandFace = $CarryingHand/Taart/TaartFace
 onready var _tear_audio: RandomStreamPlayer = $TearAudio
+onready var _arm: Sprite = $CarryingHand/Arm
+onready var _duim: Sprite = $CarryingHand/BonusDuim
+onready var _table_audio: AudioStreamPlayer = $TableAudio
+onready var _end_faces: Node2D = $EndFaces
 
 onready var _taarts: Array = [
 	$CarryingHand/Taart/Taart1,
@@ -99,10 +103,22 @@ func set_num_pieces(num_pieces: int):
 		_face.hide()
 
 
-func stop_walking():
+func stop_walking(num_pieces: int):
+	_face.hide()
+	
 	_walking_tween.remove_all()
 	_taart_tween.remove_all()
 	
-	_walking_tween.interpolate_property(_carrying_hand, "position:y", 0, 20, WALK_TIME/2, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
-	_walking_tween.interpolate_property(_carrying_hand, "position:y", 20, 0, WALK_TIME/2, Tween.TRANS_SINE, Tween.EASE_IN_OUT, WALK_TIME/2)
+	_walking_tween.repeat = false
+	
+	_walking_tween.interpolate_property(_carrying_hand, "position", _carrying_hand.position, Vector2(0, 0), 1, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+	_walking_tween.interpolate_property(_duim, "position:y", _duim.position.y, _duim.position.y + 800, 1, Tween.TRANS_SINE, Tween.EASE_IN_OUT, 1)
+	_walking_tween.interpolate_property(_arm, "position:y", _arm.position.y, _arm.position.y + 800, 1, Tween.TRANS_SINE, Tween.EASE_IN_OUT, 1)
 	_walking_tween.start()
+	
+	yield(get_tree().create_timer(.8), "timeout")
+	_table_audio.play()
+	
+	yield(get_tree().create_timer(.8), "timeout")
+	_end_faces.get_child(4 - num_pieces).show()
+	

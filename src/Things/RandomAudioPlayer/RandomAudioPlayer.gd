@@ -8,6 +8,7 @@ export(bool) var auto_play: bool = false
 
 
 func _ready() -> void:
+	randomize()
 	if auto_play: play()
 
 

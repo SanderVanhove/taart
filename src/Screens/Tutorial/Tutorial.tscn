@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Screens/Menu/Pangolin-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Screens/Tutorial/YouareinvitedTekst.png" type="Texture" id=2]
+[ext_resource path="res://Screens/Menu/RichTextLabel.gd" type="Script" id=3]
+[ext_resource path="res://Screens/Tutorial/TeamTaartTekst.png" type="Texture" id=4]
+[ext_resource path="res://Screens/Tutorial/Post-it_tutorialscherm.png" type="Texture" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 57
+font_data = ExtResource( 1 )
+
+[node name="Tutorial" type="Node2D"]
+
+[node name="Post-itTutorialscherm" type="Sprite" parent="."]
+texture = ExtResource( 5 )
+centered = false
+
+[node name="YouareinvitedTekst" type="Sprite" parent="."]
+position = Vector2( 791, 311 )
+texture = ExtResource( 2 )
+
+[node name="TeamTaartTekst" type="Sprite" parent="."]
+position = Vector2( 1060, 787 )
+texture = ExtResource( 4 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 538.0
+margin_top = 412.0
+margin_right = 1349.0
+margin_bottom = 680.0
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center][tornado radius=2 freq=2]Use [color=#D85115]mouse[/color] to slap
+
+Keep some [color=#D85115]Taart[/color] for yourself[/tornado]"
+text = "Use mouse to slap
+
+Keep some Taart for yourself"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

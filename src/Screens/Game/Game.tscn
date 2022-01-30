@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Things/Taart/Taart.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Things/Hand/Hand.tscn" type="PackedScene" id=2]
@@ -7,6 +7,9 @@
 [ext_resource path="res://Screens/Game/Camera2D.gd" type="Script" id=5]
 [ext_resource path="res://Screens/Menu/Achtergrond_papierB.png" type="Texture" id=6]
 [ext_resource path="res://Screens/Game/music1.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Screens/Tutorial/Tutorial.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Things/Tafel/Tafel.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Screens/EndScreen/EndScreen.tscn" type="PackedScene" id=10]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 4 )
@@ -27,18 +30,25 @@ script = ExtResource( 5 )
 
 [node name="ScreenShake" parent="Camera2D" instance=ExtResource( 3 )]
 
+[node name="Tafel" parent="." instance=ExtResource( 9 )]
+
 [node name="Taart" parent="." instance=ExtResource( 1 )]
 position = Vector2( 971, 522 )
 
 [node name="EnemyHands" type="Node2D" parent="."]
+
+[node name="EndScreen" parent="." instance=ExtResource( 10 )]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+
+[node name="Tutorial" parent="." instance=ExtResource( 8 )]
 
 [node name="Hand" parent="." instance=ExtResource( 2 )]
 pause_mode = 2
 position = Vector2( 731, 396 )
 
 [node name="NewEnemyTimer" type="Timer" parent="."]
-wait_time = 0.6
-autostart = true
+wait_time = 3.0
 
 [node name="StolenTaartTimer" type="Timer" parent="."]
 pause_mode = 2

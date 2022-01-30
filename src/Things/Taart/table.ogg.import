@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/table.ogg-9cc5446e3e19ab930f250a3b0aaf5bbd.oggstr"
+
+[deps]
+
+source_file="res://Things/Taart/table.ogg"
+dest_files=[ "res://.import/table.ogg-9cc5446e3e19ab930f250a3b0aaf5bbd.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
