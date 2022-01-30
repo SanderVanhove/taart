@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/C18.wav-17ba9bc317087d6c32d36ec90b071680.sample"
+
+[deps]
+
+source_file="res://Things/Hand/audio/claps/C18.wav"
+dest_files=[ "res://.import/C18.wav-17ba9bc317087d6c32d36ec90b071680.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

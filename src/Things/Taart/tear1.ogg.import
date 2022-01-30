@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/tear1.ogg-79bfd8295faa433892e74499544ab8bc.oggstr"
+
+[deps]
+
+source_file="res://Things/Taart/tear1.ogg"
+dest_files=[ "res://.import/tear1.ogg-79bfd8295faa433892e74499544ab8bc.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

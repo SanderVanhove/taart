@@ -15,6 +15,8 @@ onready var _slap_hand: Node2D = $Visual/Hand/SlapHand
 onready var _slap_lines1: Node2D = $Visual/Hand/SlapLines1
 onready var _slap_lines2: Node2D = $Visual/Hand/SlapLines2
 
+onready var _slap_audio: RandomStreamPlayer = $SlapAudio
+
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
@@ -44,6 +46,8 @@ func _input(event):
 	
 	if is_slapping:
 		return
+	
+	_slap_audio.play()
 		
 	emit_signal("slap")
 	

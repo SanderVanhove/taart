@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/pop.ogg-01daf1f6786c2a522a3d39ae6a59352c.oggstr"
+
+[deps]
+
+source_file="res://Screens/Game/pop.ogg"
+dest_files=[ "res://.import/pop.ogg-01daf1f6786c2a522a3d39ae6a59352c.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Things/Hand/smack_streep1.png" type="Texture" id=1]
 [ext_resource path="res://Things/Hand/Hand.gd" type="Script" id=2]
@@ -7,9 +7,54 @@
 [ext_resource path="res://Things/Hand/Hand_slap.png" type="Texture" id=5]
 [ext_resource path="res://Things/Hand/smack_streep3.png" type="Texture" id=6]
 [ext_resource path="res://Things/Hand/smack_streep2.png" type="Texture" id=7]
+[ext_resource path="res://Things/Hand/audio/claps/C24.wav" type="AudioStream" id=8]
+[ext_resource path="res://Things/Hand/audio/claps/C21.wav" type="AudioStream" id=9]
+[ext_resource path="res://Things/Hand/audio/claps/C26.wav" type="AudioStream" id=10]
+[ext_resource path="res://Things/Hand/audio/claps/C25.wav" type="AudioStream" id=11]
+[ext_resource path="res://Things/Hand/audio/claps/C27.wav" type="AudioStream" id=12]
+[ext_resource path="res://Things/Hand/audio/claps/C20.wav" type="AudioStream" id=13]
+[ext_resource path="res://Things/Hand/audio/claps/C22.wav" type="AudioStream" id=14]
+[ext_resource path="res://Things/Hand/audio/claps/C23.wav" type="AudioStream" id=15]
+[ext_resource path="res://Things/RandomAudioPlayer/RandomAudioPlayer.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Things/Hand/audio/claps/C17.wav" type="AudioStream" id=17]
+[ext_resource path="res://Things/Hand/audio/claps/C18.wav" type="AudioStream" id=18]
+[ext_resource path="res://Things/Hand/audio/claps/C19.wav" type="AudioStream" id=19]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 77, 117 )
+
+[sub_resource type="AudioStreamRandomPitch" id=2]
+audio_stream = ExtResource( 17 )
+
+[sub_resource type="AudioStreamRandomPitch" id=3]
+audio_stream = ExtResource( 18 )
+
+[sub_resource type="AudioStreamRandomPitch" id=4]
+audio_stream = ExtResource( 19 )
+
+[sub_resource type="AudioStreamRandomPitch" id=5]
+audio_stream = ExtResource( 13 )
+
+[sub_resource type="AudioStreamRandomPitch" id=6]
+audio_stream = ExtResource( 9 )
+
+[sub_resource type="AudioStreamRandomPitch" id=7]
+audio_stream = ExtResource( 14 )
+
+[sub_resource type="AudioStreamRandomPitch" id=8]
+audio_stream = ExtResource( 15 )
+
+[sub_resource type="AudioStreamRandomPitch" id=9]
+audio_stream = ExtResource( 8 )
+
+[sub_resource type="AudioStreamRandomPitch" id=10]
+audio_stream = ExtResource( 11 )
+
+[sub_resource type="AudioStreamRandomPitch" id=11]
+audio_stream = ExtResource( 10 )
+
+[sub_resource type="AudioStreamRandomPitch" id=12]
+audio_stream = ExtResource( 12 )
 
 [node name="Hand" type="Node2D"]
 script = ExtResource( 2 )
@@ -108,5 +153,62 @@ one_shot = true
 
 [node name="SlapLineTimer" type="Timer" parent="."]
 wait_time = 0.05
+
+[node name="SlapAudio" parent="." instance=ExtResource( 16 )]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SlapAudio"]
+stream = SubResource( 2 )
+volume_db = -3.907
+bus = "Sound"
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="SlapAudio"]
+stream = SubResource( 3 )
+volume_db = -3.907
+bus = "Sound"
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="SlapAudio"]
+stream = SubResource( 4 )
+volume_db = -3.907
+bus = "Sound"
+
+[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="SlapAudio"]
+stream = SubResource( 5 )
+volume_db = -3.907
+bus = "Sound"
+
+[node name="AudioStreamPlayer2D5" type="AudioStreamPlayer2D" parent="SlapAudio"]
+stream = SubResource( 6 )
+volume_db = -3.907
+bus = "Sound"
+
+[node name="AudioStreamPlayer2D6" type="AudioStreamPlayer2D" parent="SlapAudio"]
+stream = SubResource( 7 )
+volume_db = -3.907
+bus = "Sound"
+
+[node name="AudioStreamPlayer2D7" type="AudioStreamPlayer2D" parent="SlapAudio"]
+stream = SubResource( 8 )
+volume_db = -3.907
+bus = "Sound"
+
+[node name="AudioStreamPlayer2D8" type="AudioStreamPlayer2D" parent="SlapAudio"]
+stream = SubResource( 9 )
+volume_db = -3.907
+bus = "Sound"
+
+[node name="AudioStreamPlayer2D9" type="AudioStreamPlayer2D" parent="SlapAudio"]
+stream = SubResource( 10 )
+volume_db = -3.907
+bus = "Sound"
+
+[node name="AudioStreamPlayer2D10" type="AudioStreamPlayer2D" parent="SlapAudio"]
+stream = SubResource( 11 )
+volume_db = -3.907
+bus = "Sound"
+
+[node name="AudioStreamPlayer2D11" type="AudioStreamPlayer2D" parent="SlapAudio"]
+stream = SubResource( 12 )
+volume_db = -3.907
+bus = "Sound"
 
 [connection signal="area_entered" from="Visual/Hand/Hitbox" to="." method="_on_Hitbox_area_entered"]

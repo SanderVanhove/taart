@@ -3,7 +3,7 @@ class_name Taart
 
 
 const SWAY_DIST: Vector2 = Vector2(100, 70)
-const SLIDE_DIST: Vector2 = Vector2(10, -10)
+const SLIDE_DIST: Vector2 = Vector2(20, -15)
 const WALK_TIME: float = 1.3
 const SLIDE_TIME: float = .4
 const JUMP_TIME: float = .1
@@ -19,6 +19,7 @@ onready var _walking_tween: Tween = $WalkingTween
 onready var _taart_tween: Tween = $TaartTween
 onready var _candles: Node2D = $CarryingHand/Taart/Candles
 onready var _face: HandFace = $CarryingHand/Taart/TaartFace
+onready var _tear_audio: RandomStreamPlayer = $TearAudio
 
 onready var _taarts: Array = [
 	$CarryingHand/Taart/Taart1,
@@ -79,6 +80,8 @@ func set_num_pieces(num_pieces: int):
 	if num_pieces < 0:
 		_face.hide()
 		return
+	
+	_tear_audio.play()
 	
 	_face.show_smack_face()
 	

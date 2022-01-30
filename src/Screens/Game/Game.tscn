@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Things/Taart/Taart.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Things/Hand/Hand.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Screens/Game/Game.gd" type="Script" id=4]
 [ext_resource path="res://Screens/Game/Camera2D.gd" type="Script" id=5]
 [ext_resource path="res://Screens/Menu/Achtergrond_papierB.png" type="Texture" id=6]
+[ext_resource path="res://Screens/Game/music1.ogg" type="AudioStream" id=7]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 4 )
@@ -49,6 +50,14 @@ one_shot = true
 [node name="InvulnarableTimer" type="Timer" parent="."]
 pause_mode = 2
 wait_time = 0.7
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 7 )
+volume_db = -21.646
+autoplay = true
 
 [connection signal="slap" from="Hand" to="." method="_on_Hand_slap"]
 [connection signal="timeout" from="NewEnemyTimer" to="." method="_on_NewEnemyTimer_timeout"]

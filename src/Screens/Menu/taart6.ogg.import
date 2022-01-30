@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/taart6.ogg-f2ea2dcfa9e05944634f213b704b3ecd.oggstr"
+
+[deps]
+
+source_file="res://Screens/Menu/taart6.ogg"
+dest_files=[ "res://.import/taart6.ogg-f2ea2dcfa9e05944634f213b704b3ecd.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

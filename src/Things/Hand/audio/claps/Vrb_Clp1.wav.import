@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Vrb_Clp1.wav-4d137134f8f94e9fadcd3f9d630159da.sample"
+
+[deps]
+
+source_file="res://Things/Hand/audio/claps/Vrb_Clp1.wav"
+dest_files=[ "res://.import/Vrb_Clp1.wav-4d137134f8f94e9fadcd3f9d630159da.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

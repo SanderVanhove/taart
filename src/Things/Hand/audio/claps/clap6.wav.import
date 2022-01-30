@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/clap6.wav-07fd37f7f7072465b6b8624b43326219.sample"
+
+[deps]
+
+source_file="res://Things/Hand/audio/claps/clap6.wav"
+dest_files=[ "res://.import/clap6.wav-07fd37f7f7072465b6b8624b43326219.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

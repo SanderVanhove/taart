@@ -15,10 +15,14 @@ onready var _shaking_camera: ShakingCamera = $Camera2D
 onready var _stolen_taart_timer: Timer = $StolenTaartTimer
 onready var _invulnarable_timer: Timer = $InvulnarableTimer
 onready var _new_enemy_timer: Timer = $NewEnemyTimer
+onready var _tween: Tween = $Tween
 
 
 func _ready():
 	randomize()
+	
+	_tween.interpolate_property(self, "modulate:a", 0, 1, .5)
+	_tween.start()
 
 
 func _process(delta):

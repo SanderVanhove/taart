@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/clp_happiness.wav-131c088ec893ebeabbd6960f0ee8d78f.sample"
+
+[deps]
+
+source_file="res://Things/Hand/audio/claps/clp_happiness.wav"
+dest_files=[ "res://.import/clp_happiness.wav-131c088ec893ebeabbd6960f0ee8d78f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -32,6 +32,9 @@ onready var _hand2: Sprite = $MovingPart/Visual/Arm2
 onready var _taartje: Sprite = $MovingPart/Visual/Taart4
 onready var _face: HandFace = $MovingPart/Visual/HandFace
 
+onready var _auw_sound: RandomStreamPlayer = $MovingPart/AuwAudio
+onready var _yey_audio: RandomStreamPlayer = $MovingPart/YeyAudio
+
 
 func _ready():
 	var texture = arm_skins[randi() % len(arm_skins)]
@@ -61,6 +64,8 @@ func move():
 			_face.show_cake_face()
 			if position.x < 0:
 				_face.scale.y *= -1
+			
+			_yey_audio.play()
 		
 		retreat_wiggle(70)
 		
@@ -100,6 +105,8 @@ func _on_VisibilityNotifier2D_screen_exited():
 func _on_Area2D_area_entered(area):
 	if not area.is_in_group("player") or is_retreating:
 		return
+		
+	_auw_sound.play()
 	
 	is_slapped = true
 	is_retreating = true

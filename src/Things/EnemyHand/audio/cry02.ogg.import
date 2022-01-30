@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/cry02.ogg-c78d1a9d28c9fb04a4605bd013caba70.oggstr"
+
+[deps]
+
+source_file="res://Things/EnemyHand/audio/cry02.ogg"
+dest_files=[ "res://.import/cry02.ogg-c78d1a9d28c9fb04a4605bd013caba70.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
