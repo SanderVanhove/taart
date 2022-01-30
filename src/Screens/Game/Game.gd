@@ -7,11 +7,14 @@ onready var SCREEN_SIZE: Vector2 = Vector2(ProjectSettings.get("display/window/s
 const GAME_DURATION: float = 10.0
 
 var time: float = 0
+var lives: int = 4
 
-onready var _taart: Node2D = $Taart
+onready var _taart: Taart = $Taart
 onready var _enemy_hands: Node2D = $EnemyHands
 onready var _shaking_camera: ShakingCamera = $Camera2D
 onready var _stolen_taart_timer: Timer = $StolenTaartTimer
+onready var _invulnarable_timer: Timer = $InvulnarableTimer
+onready var _new_enemy_timer: Timer = $NewEnemyTimer
 
 
 func _ready():
@@ -25,7 +28,7 @@ func _process(delta):
 
 func _on_NewEnemyTimer_timeout():
 	var new_enemy: EnemyHand = EnemyHandScene.instance()
-	new_enemy.taart = _taart.taart
+	new_enemy.taart = _taart
 	new_enemy.moving_speed = 5 + randf() * 2
 	
 	if randi() % 2 == 0:
@@ -49,8 +52,28 @@ func taart_stolen():
 	_shaking_camera.trigger_large_shake()
 	get_tree().paused = true
 	
+	
+	if not _taart.is_invulnarable:
+		lives -= 1
+		_taart.set_num_pieces(lives)
+	
+	_taart.is_invulnarable = true
+	
 	_stolen_taart_timer.start()
 	yield(_stolen_taart_timer, "timeout")
 	
 	get_tree().paused = false
+	
+	if lives == 0:
+		_new_enemy_timer.stop()
+		
+		for hand in _enemy_hands.get_children():
+			hand.go_away()
+		
+		_taart.stop_walking()
+	
+	_invulnarable_timer.start()
+	yield(_invulnarable_timer, "timeout")
+	
+	_taart.is_invulnarable = false
 	

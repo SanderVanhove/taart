@@ -1,46 +1,189 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=20 format=2]
 
-[ext_resource path="res://Things/Taart/concept_taart.png" type="Texture" id=1]
+[ext_resource path="res://Things/Taart/Taart2.png" type="Texture" id=1]
 [ext_resource path="res://Things/Taart/Taart.gd" type="Script" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://Things/Taart/arm.png" type="Texture" id=3]
 [ext_resource path="res://Things/Candle/Candle.tscn" type="PackedScene" id=4]
-
-[sub_resource type="CircleShape2D" id=1]
-radius = 234.214
+[ext_resource path="res://Things/Taart/Taart3.png" type="Texture" id=5]
+[ext_resource path="res://Things/Taart/Taart4.png" type="Texture" id=6]
+[ext_resource path="res://Things/Taart/Taart1.png" type="Texture" id=7]
+[ext_resource path="res://Things/Taart/Bord.png" type="Texture" id=8]
+[ext_resource path="res://Things/Taart/Hand_holding.png" type="Texture" id=9]
+[ext_resource path="res://Things/Taart/BonusDuim.png" type="Texture" id=10]
+[ext_resource path="res://Things/Taart/Soes3.png" type="Texture" id=11]
+[ext_resource path="res://Things/Taart/AardbeiB2.png" type="Texture" id=12]
+[ext_resource path="res://Things/Taart/AarbeiA1.png" type="Texture" id=13]
+[ext_resource path="res://Things/Taart/Soes1.png" type="Texture" id=14]
+[ext_resource path="res://Things/Taart/Soes4.png" type="Texture" id=15]
+[ext_resource path="res://Things/Taart/Soes2.png" type="Texture" id=16]
+[ext_resource path="res://Things/Taart/AarbeiA2.png" type="Texture" id=17]
+[ext_resource path="res://Things/Taart/AardbeiB1.png" type="Texture" id=18]
+[ext_resource path="res://Things/Face/HandFace.tscn" type="PackedScene" id=19]
 
 [node name="Taart" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="CarryingHand" type="Node2D" parent="."]
 
-[node name="Icon2" type="Sprite" parent="CarryingHand"]
-position = Vector2( 80, 524 )
-rotation = -0.247837
-scale = Vector2( 1, 12.1094 )
+[node name="Arm" type="Sprite" parent="CarryingHand"]
+position = Vector2( 191, 567 )
+rotation = -0.574213
+scale = Vector2( 0.204598, 0.322207 )
 texture = ExtResource( 3 )
 
-[node name="Icon" type="Sprite" parent="CarryingHand"]
-position = Vector2( 7, 160.5 )
-scale = Vector2( 6.75, 2.17188 )
-texture = ExtResource( 3 )
+[node name="HandHolding" type="Sprite" parent="CarryingHand"]
+position = Vector2( 17.9584, 166.685 )
+rotation = -0.296706
+scale = Vector2( 0.268018, 0.268018 )
+texture = ExtResource( 9 )
 
-[node name="Taart" type="Sprite" parent="CarryingHand"]
-scale = Vector2( 0.400415, 0.400415 )
+[node name="Plate" type="Sprite" parent="CarryingHand"]
+position = Vector2( 7, 119.5 )
+scale = Vector2( 0.772538, 0.368571 )
+texture = ExtResource( 8 )
+
+[node name="BonusDuim" type="Sprite" parent="CarryingHand"]
+position = Vector2( 86, 219 )
+rotation = -0.296706
+scale = Vector2( 0.268018, 0.268018 )
+texture = ExtResource( 10 )
+
+[node name="Taart" type="Node2D" parent="CarryingHand"]
+
+[node name="Taart4" type="Sprite" parent="CarryingHand/Taart"]
+position = Vector2( 0, -42 )
+scale = Vector2( 0.489209, 0.489209 )
+texture = ExtResource( 7 )
+
+[node name="Taart3" type="Sprite" parent="CarryingHand/Taart"]
+visible = false
+position = Vector2( 0, -42 )
+scale = Vector2( 0.486111, 0.486111 )
 texture = ExtResource( 1 )
 
-[node name="Area2D" type="Area2D" parent="CarryingHand/Taart"]
-scale = Vector2( 2.49741, 2.49741 )
-collision_layer = 0
-collision_mask = 0
+[node name="Taart2" type="Sprite" parent="CarryingHand/Taart"]
+visible = false
+position = Vector2( 0, -42 )
+scale = Vector2( 0.442253, 0.442254 )
+texture = ExtResource( 5 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CarryingHand/Taart/Area2D"]
-shape = SubResource( 1 )
+[node name="Taart1" type="Sprite" parent="CarryingHand/Taart"]
+visible = false
+position = Vector2( 90, -42 )
+scale = Vector2( 0.489209, 0.489209 )
+texture = ExtResource( 6 )
 
 [node name="Candles" type="Node2D" parent="CarryingHand/Taart"]
+scale = Vector2( 0.400415, 0.400415 )
 
 [node name="Candle" parent="CarryingHand/Taart/Candles" instance=ExtResource( 4 )]
-position = Vector2( 0, -152.342 )
+position = Vector2( 104.891, -457.026 )
 scale = Vector2( 4, 4 )
+
+[node name="AarbeiA2" type="Sprite" parent="CarryingHand/Taart/Candles/Candle"]
+show_behind_parent = true
+position = Vector2( -16.2332, -16.8575 )
+scale = Vector2( 0.102157, 0.102157 )
+texture = ExtResource( 17 )
+
+[node name="AardbeiB1" type="Sprite" parent="CarryingHand/Taart/Candles/Candle"]
+show_behind_parent = true
+position = Vector2( 40.5829, -13.1113 )
+scale = Vector2( 0.102157, 0.102157 )
+texture = ExtResource( 18 )
+
+[node name="Soes3" type="Sprite" parent="CarryingHand/Taart/Candles/Candle"]
+position = Vector2( 62.4353, -12.487 )
+scale = Vector2( 0.135299, 0.138533 )
+texture = ExtResource( 11 )
+
+[node name="Soes4" type="Sprite" parent="CarryingHand/Taart/Candles/Candle"]
+show_behind_parent = true
+position = Vector2( 20.5256, -18.5745 )
+scale = Vector2( 0.108407, 0.116664 )
+texture = ExtResource( 15 )
+
+[node name="Candle2" parent="CarryingHand/Taart/Candles" instance=ExtResource( 4 )]
+position = Vector2( -114.881, -462.021 )
+scale = Vector2( 4, 4 )
+
+[node name="AarbeiA1" type="Sprite" parent="CarryingHand/Taart/Candles/Candle2"]
+show_behind_parent = true
+position = Vector2( -63.0596, -8.74097 )
+scale = Vector2( 0.108858, 0.104097 )
+texture = ExtResource( 13 )
+
+[node name="Soes2" type="Sprite" parent="CarryingHand/Taart/Candles/Candle2"]
+show_behind_parent = true
+position = Vector2( 18.1062, -18.2623 )
+scale = Vector2( 0.106892, 0.165338 )
+texture = ExtResource( 16 )
+
+[node name="AarbeiA2" type="Sprite" parent="CarryingHand/Taart/Candles/Candle2"]
+show_behind_parent = true
+position = Vector2( -8.11659, -18.1061 )
+scale = Vector2( 0.112108, 0.0982927 )
+texture = ExtResource( 17 )
+
+[node name="Soes1" type="Sprite" parent="CarryingHand/Taart/Candles/Candle2"]
+show_behind_parent = true
+position = Vector2( -29.9689, -19.9792 )
+scale = Vector2( 0.114536, 0.135339 )
+texture = ExtResource( 14 )
+
+[node name="Candle3" parent="CarryingHand/Taart/Candles" instance=ExtResource( 4 )]
+position = Vector2( 264.725, -404.58 )
+scale = Vector2( 4, 4 )
+
+[node name="AarbeiA2" type="Sprite" parent="CarryingHand/Taart/Candles/Candle3"]
+position = Vector2( 13.1115, -11.2383 )
+scale = Vector2( 0.110467, 0.110072 )
+texture = ExtResource( 17 )
+
+[node name="Soes1" type="Sprite" parent="CarryingHand/Taart/Candles/Candle3"]
+position = Vector2( -11.8627, -11.2384 )
+rotation = 3.14159
+scale = Vector2( 0.12924, -0.135266 )
+texture = ExtResource( 14 )
+
+[node name="AardbeiB2" type="Sprite" parent="CarryingHand/Taart/Candles/Candle3"]
+position = Vector2( -36.2124, -8.11659 )
+rotation = 3.14159
+scale = Vector2( 0.124322, -0.109457 )
+texture = ExtResource( 12 )
+
+[node name="Soes3" type="Sprite" parent="CarryingHand/Taart/Candles/Candle3"]
+position = Vector2( -57.4404, -2.49731 )
+scale = Vector2( -0.128529, 0.129634 )
+texture = ExtResource( 11 )
+
+[node name="Candle4" parent="CarryingHand/Taart/Candles" instance=ExtResource( 4 )]
+position = Vector2( -282.207, -407.078 )
+scale = Vector2( 4, 4 )
+
+[node name="Soes4" type="Sprite" parent="CarryingHand/Taart/Candles/Candle4"]
+position = Vector2( -33.0908, -14.3601 )
+scale = Vector2( 0.10031, 0.120687 )
+texture = ExtResource( 15 )
+
+[node name="AarbeiA1" type="Sprite" parent="CarryingHand/Taart/Candles/Candle4"]
+position = Vector2( 48.0751, -6.10352e-05 )
+scale = Vector2( 0.0919143, 0.116836 )
+texture = ExtResource( 13 )
+
+[node name="AardbeiB2" type="Sprite" parent="CarryingHand/Taart/Candles/Candle4"]
+position = Vector2( -9.36526, -6.8678 )
+scale = Vector2( 0.129204, 0.116836 )
+texture = ExtResource( 12 )
+
+[node name="Soes2" type="Sprite" parent="CarryingHand/Taart/Candles/Candle4"]
+position = Vector2( 23.8425, -3.3559 )
+scale = Vector2( 0.110498, 0.160135 )
+texture = ExtResource( 16 )
+
+[node name="TaartFace" parent="CarryingHand/Taart" instance=ExtResource( 19 )]
+position = Vector2( 8, -7 )
+scale = Vector2( 1.2, 1.2 )
 
 [node name="WalkingTween" type="Tween" parent="."]
 

@@ -1,6 +1,16 @@
 extends Node2D
 class_name EnemyHand
 
+var arm_skins = [
+	preload("res://Things/EnemyHand/Cat_Arm.png"),
+	preload("res://Things/EnemyHand/Fuzzy_Arm.png"),
+	preload("res://Things/EnemyHand/Octopus_arm.png"),
+	preload("res://Things/EnemyHand/Human_arm.png"),
+	preload("res://Things/EnemyHand/Zombie_arm.png"),
+	preload("res://Things/EnemyHand/kikker_arm.png"),
+	preload("res://Things/EnemyHand/monster_arm.png")
+]
+
 signal got_hit
 signal got_taart
 
@@ -9,7 +19,7 @@ const GRAB_DIST: float = 100.0
 
 export var moving_speed: float = 5.0
 
-var taart: Node2D
+var taart
 var retreat_speed: float =  moving_speed * 3
 var is_retreating: bool = false
 var is_slapped: bool = false
@@ -17,6 +27,16 @@ var is_slapped: bool = false
 onready var _tween: Tween = $Tween
 onready var _moving_part: Node2D = $MovingPart
 onready var _area: Area2D = $MovingPart/Area2D
+onready var _hand: Sprite = $MovingPart/Visual/Arm
+onready var _hand2: Sprite = $MovingPart/Visual/Arm2
+onready var _taartje: Sprite = $MovingPart/Visual/Taart4
+onready var _face: HandFace = $MovingPart/Visual/HandFace
+
+
+func _ready():
+	var texture = arm_skins[randi() % len(arm_skins)]
+	_hand.texture = texture
+	_hand2.texture = texture
 
 
 func _process(delta):
@@ -28,12 +48,21 @@ func move():
 	if is_slapped:
 		return
 	
-	var vector_towards_taart = taart.global_position - _moving_part.global_position
+	var vector_towards_taart = taart.taart.global_position - _moving_part.global_position
 	
 	if not is_slapped and not is_retreating and vector_towards_taart.length() < GRAB_DIST:
 		is_retreating = true
 		
-		retreat_wiggle(50)
+		if not taart.is_invulnarable:
+			_taartje.show()
+			if position.x < 0:
+				_taartje.scale.y *= -1
+				
+			_face.show_cake_face()
+			if position.x < 0:
+				_face.scale.y *= -1
+		
+		retreat_wiggle(70)
 		
 		emit_signal("got_taart")
 	
@@ -60,7 +89,7 @@ func retreat_wiggle(delta: float):
 
 
 func rotate_to_taart():
-	var vector_towards_taart = taart.global_position - self.global_position
+	var vector_towards_taart = taart.taart.global_position - self.global_position
 	rotation = atan2(vector_towards_taart.y, vector_towards_taart.x) + HALF_PI
 
 
@@ -77,6 +106,10 @@ func _on_Area2D_area_entered(area):
 	
 	emit_signal("got_hit")
 	
+	_face.show_smack_face()
+	if position.x < 0:
+		_face.scale.y *= -1
+	
 	var wiggle_dist: float = 20
 	var time: float = .1
 	
@@ -91,7 +124,15 @@ func _on_Area2D_area_entered(area):
 	
 	yield(_tween, "tween_all_completed")
 	
-	retreat_wiggle(30)
+	retreat_wiggle(35)
 	
 	
 	is_slapped = false
+
+
+func go_away():
+	_tween.remove_all()
+	_tween.repeat = false
+	
+	retreat_wiggle(30)
+	is_retreating = true

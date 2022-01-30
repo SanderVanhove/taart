@@ -1,10 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Things/Hand/smack_streep1.png" type="Texture" id=1]
 [ext_resource path="res://Things/Hand/Hand.gd" type="Script" id=2]
+[ext_resource path="res://Things/Taart/arm.png" type="Texture" id=3]
+[ext_resource path="res://Things/Hand/Hand_normal.png" type="Texture" id=4]
+[ext_resource path="res://Things/Hand/Hand_slap.png" type="Texture" id=5]
+[ext_resource path="res://Things/Hand/smack_streep3.png" type="Texture" id=6]
+[ext_resource path="res://Things/Hand/smack_streep2.png" type="Texture" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 77, 86 )
+extents = Vector2( 77, 117 )
 
 [node name="Hand" type="Node2D"]
 script = ExtResource( 2 )
@@ -12,15 +17,23 @@ script = ExtResource( 2 )
 [node name="Visual" type="Node2D" parent="."]
 
 [node name="Arm" type="Sprite" parent="Visual"]
-position = Vector2( 3, 546 )
-scale = Vector2( 1, 19.5625 )
-texture = ExtResource( 1 )
+position = Vector2( 3, 497 )
+scale = Vector2( -0.217738, 0.478 )
+texture = ExtResource( 3 )
 
 [node name="Hand" type="Node2D" parent="Visual"]
 
 [node name="NormalHand" type="Sprite" parent="Visual/Hand"]
-scale = Vector2( 2.5625, 2.875 )
-texture = ExtResource( 1 )
+position = Vector2( 12, -75.5642 )
+scale = Vector2( -0.261, 0.292 )
+texture = ExtResource( 4 )
+offset = Vector2( 0, -25 )
+
+[node name="SlapHand" type="Sprite" parent="Visual/Hand"]
+visible = false
+position = Vector2( -10, -76.4199 )
+scale = Vector2( -0.23, 0.258 )
+texture = ExtResource( 5 )
 offset = Vector2( 0, -25 )
 
 [node name="Hitbox" type="Area2D" parent="Visual/Hand" groups=["player"]]
@@ -28,62 +41,66 @@ collision_layer = 0
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Visual/Hand/Hitbox"]
-position = Vector2( 1, -70 )
+position = Vector2( 1, -101 )
 shape = SubResource( 1 )
 
 [node name="SlapLines1" type="Node2D" parent="Visual/Hand"]
 visible = false
+modulate = Color( 1, 1, 1, 0.694118 )
+position = Vector2( 0, -63 )
 
 [node name="Icon" type="Sprite" parent="Visual/Hand/SlapLines1"]
-position = Vector2( -47, -255 )
-rotation = -0.328122
-scale = Vector2( 0.28125, 1.92188 )
+position = Vector2( -44, -264 )
+rotation = -1.71391
+scale = Vector2( 0.60094, 0.45923 )
 texture = ExtResource( 1 )
 
 [node name="Icon2" type="Sprite" parent="Visual/Hand/SlapLines1"]
-position = Vector2( 72, -245 )
-rotation = 0.109956
-scale = Vector2( 0.28125, 1.92188 )
-texture = ExtResource( 1 )
+position = Vector2( 79, -250 )
+rotation = -2.61799
+scale = Vector2( 0.463047, 0.624643 )
+texture = ExtResource( 6 )
 
 [node name="Icon4" type="Sprite" parent="Visual/Hand/SlapLines1"]
-position = Vector2( 162, -170 )
-rotation = 0.752237
-scale = Vector2( 0.28125, 1.92188 )
-texture = ExtResource( 1 )
+position = Vector2( 179, -188 )
+rotation = -1.309
+scale = Vector2( 0.693314, 0.451421 )
+texture = ExtResource( 7 )
 
 [node name="Icon3" type="Sprite" parent="Visual/Hand/SlapLines1"]
-position = Vector2( -162, -181 )
-rotation = -4.04218
-scale = Vector2( 0.28125, 1.92188 )
-texture = ExtResource( 1 )
+position = Vector2( -152, -200 )
+rotation = 3.40339
+scale = Vector2( 0.503142, 0.503142 )
+texture = ExtResource( 7 )
 
 [node name="SlapLines2" type="Node2D" parent="Visual/Hand"]
 visible = false
+modulate = Color( 1, 1, 1, 0.694118 )
+position = Vector2( 0, -63 )
 
 [node name="Icon" type="Sprite" parent="Visual/Hand/SlapLines2"]
-position = Vector2( -75, -250 )
-rotation = -0.328122
-scale = Vector2( 0.28125, 1.92188 )
+position = Vector2( 173, -159 )
+rotation = -0.523598
+scale = Vector2( 0.638076, 0.410018 )
 texture = ExtResource( 1 )
 
 [node name="Icon2" type="Sprite" parent="Visual/Hand/SlapLines2"]
-position = Vector2( 39, -247 )
-rotation = 0.328122
-scale = Vector2( 0.28125, 1.92188 )
-texture = ExtResource( 1 )
+position = Vector2( -126, -230 )
+rotation = -3.40339
+scale = Vector2( 0.455947, 0.670276 )
+texture = ExtResource( 6 )
 
 [node name="Icon4" type="Sprite" parent="Visual/Hand/SlapLines2"]
-position = Vector2( 148, -186 )
-rotation = 0.893609
-scale = Vector2( 0.28125, 1.92188 )
-texture = ExtResource( 1 )
+position = Vector2( -17, -262 )
+rotation = -2.09439
+scale = Vector2( 0.898321, 0.533339 )
+texture = ExtResource( 7 )
 
 [node name="Icon3" type="Sprite" parent="Visual/Hand/SlapLines2"]
-position = Vector2( -155, -168 )
-rotation = -4.1469
-scale = Vector2( 0.28125, 1.92188 )
-texture = ExtResource( 1 )
+position = Vector2( 113, -235 )
+rotation = -2.09439
+scale = Vector2( 0.283408, 0.866664 )
+texture = ExtResource( 7 )
 
 [node name="SlapTimer" type="Timer" parent="."]
 wait_time = 0.25

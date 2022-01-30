@@ -1,11 +1,35 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=34 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Screens/Menu/A1.png" type="Texture" id=1]
 [ext_resource path="res://Screens/Menu/Letter.gd" type="Script" id=2]
 [ext_resource path="res://Screens/Menu/Title.gd" type="Script" id=3]
 [ext_resource path="res://Screens/Menu/Pangolin-Regular.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Screens/Menu/RichTextLabel.gd" type="Script" id=5]
 [ext_resource path="res://Screens/Menu/Menu.gd" type="Script" id=6]
+[ext_resource path="res://Screens/Menu/R.png" type="Texture" id=7]
+[ext_resource path="res://Screens/Menu/T2.png" type="Texture" id=8]
+[ext_resource path="res://Screens/Menu/A2.png" type="Texture" id=9]
+[ext_resource path="res://Screens/Menu/T1.png" type="Texture" id=10]
+[ext_resource path="res://Screens/Menu/Button Base.png" type="Texture" id=11]
+[ext_resource path="res://Screens/Menu/Stawberry_Startscherm.png" type="Texture" id=12]
+[ext_resource path="res://Screens/Menu/BackgroundElement.gd" type="Script" id=13]
+[ext_resource path="res://Screens/Menu/Blad1.png" type="Texture" id=14]
+[ext_resource path="res://Screens/Menu/Blad3.png" type="Texture" id=15]
+[ext_resource path="res://Screens/Menu/Blad2.png" type="Texture" id=16]
+[ext_resource path="res://Screens/Menu/Blad4.png" type="Texture" id=17]
+[ext_resource path="res://Screens/Menu/Achtergrond_papierB.png" type="Texture" id=18]
+[ext_resource path="res://Screens/Menu/confetti8.png" type="Texture" id=19]
+[ext_resource path="res://Screens/Menu/confetti11.png" type="Texture" id=20]
+[ext_resource path="res://Screens/Menu/confetti7.png" type="Texture" id=21]
+[ext_resource path="res://Screens/Menu/confetti10.png" type="Texture" id=22]
+[ext_resource path="res://Screens/Menu/confetti9.png" type="Texture" id=23]
+[ext_resource path="res://Screens/Menu/Confetti1.png" type="Texture" id=24]
+[ext_resource path="res://Screens/Menu/Confetti2.png" type="Texture" id=25]
+[ext_resource path="res://Screens/Menu/Confetti3.png" type="Texture" id=26]
+[ext_resource path="res://Screens/Menu/Confetti4.png" type="Texture" id=27]
+[ext_resource path="res://Screens/Menu/confetti5.png" type="Texture" id=28]
+[ext_resource path="res://Screens/Menu/confetti6.png" type="Texture" id=29]
+[ext_resource path="res://Things/Taart/Soes1.png" type="Texture" id=30]
 
 [sub_resource type="DynamicFont" id=1]
 size = 43
@@ -15,48 +39,144 @@ font_data = ExtResource( 4 )
 size = 24
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=3]
-size = 63
+[sub_resource type="DynamicFont" id=4]
+size = 229
 font_data = ExtResource( 4 )
 
 [node name="Menu" type="Node2D"]
 script = ExtResource( 6 )
 
+[node name="AchtergrondPapier" type="Sprite" parent="."]
+position = Vector2( 537, 539 )
+texture = ExtResource( 18 )
+
+[node name="AchtergrondPapier2" type="Sprite" parent="."]
+position = Vector2( 1617, 539 )
+texture = ExtResource( 18 )
+
+[node name="BackgroundElements" type="Node2D" parent="."]
+modulate = Color( 1, 1, 1, 0.537255 )
+
+[node name="Confetti2" type="Sprite" parent="BackgroundElements"]
+position = Vector2( 1281, 684 )
+texture = ExtResource( 25 )
+script = ExtResource( 13 )
+
+[node name="Confetti3" type="Sprite" parent="BackgroundElements"]
+position = Vector2( 122, 316 )
+texture = ExtResource( 26 )
+script = ExtResource( 13 )
+
+[node name="Confetti4" type="Sprite" parent="BackgroundElements"]
+position = Vector2( 1639, 231 )
+texture = ExtResource( 27 )
+script = ExtResource( 13 )
+
+[node name="Confetti5" type="Sprite" parent="BackgroundElements"]
+position = Vector2( 260, 915 )
+texture = ExtResource( 28 )
+script = ExtResource( 13 )
+
+[node name="Confetti6" type="Sprite" parent="BackgroundElements"]
+position = Vector2( 1743, 998 )
+texture = ExtResource( 29 )
+script = ExtResource( 13 )
+
+[node name="Confetti7" type="Sprite" parent="BackgroundElements"]
+position = Vector2( 1760, 553 )
+texture = ExtResource( 21 )
+script = ExtResource( 13 )
+
+[node name="Confetti8" type="Sprite" parent="BackgroundElements"]
+position = Vector2( 862, 184 )
+texture = ExtResource( 19 )
+script = ExtResource( 13 )
+
+[node name="Confetti9" type="Sprite" parent="BackgroundElements"]
+position = Vector2( 1273, 303 )
+texture = ExtResource( 23 )
+script = ExtResource( 13 )
+
+[node name="Confetti10" type="Sprite" parent="BackgroundElements"]
+position = Vector2( 495, 970 )
+texture = ExtResource( 22 )
+script = ExtResource( 13 )
+
+[node name="Confetti11" type="Sprite" parent="BackgroundElements"]
+position = Vector2( 1135, 986 )
+texture = ExtResource( 20 )
+script = ExtResource( 13 )
+
+[node name="Confetti1" type="Sprite" parent="BackgroundElements"]
+position = Vector2( 679, 557 )
+texture = ExtResource( 24 )
+script = ExtResource( 13 )
+
+[node name="Blad1" type="Sprite" parent="BackgroundElements"]
+position = Vector2( 402, 120 )
+texture = ExtResource( 14 )
+script = ExtResource( 13 )
+
+[node name="StawberryStartscherm" type="Sprite" parent="BackgroundElements"]
+position = Vector2( 259, 576 )
+texture = ExtResource( 12 )
+script = ExtResource( 13 )
+
+[node name="Blad2" type="Sprite" parent="BackgroundElements"]
+position = Vector2( 1705, 796 )
+texture = ExtResource( 16 )
+script = ExtResource( 13 )
+
+[node name="Blad3" type="Sprite" parent="BackgroundElements"]
+position = Vector2( 604, 926 )
+texture = ExtResource( 15 )
+script = ExtResource( 13 )
+
+[node name="Blad4" type="Sprite" parent="BackgroundElements"]
+position = Vector2( 1159, 190 )
+texture = ExtResource( 17 )
+script = ExtResource( 13 )
+
+[node name="Soes1" type="Sprite" parent="BackgroundElements"]
+position = Vector2( 1422, 620 )
+texture = ExtResource( 30 )
+script = ExtResource( 13 )
+
 [node name="Title" type="Node2D" parent="."]
-position = Vector2( 162, 235 )
+position = Vector2( 162, 285 )
 script = ExtResource( 3 )
 
 [node name="Icon" type="Sprite" parent="Title"]
-position = Vector2( 616, 0 )
-texture = ExtResource( 1 )
+position = Vector2( 343, 0 )
+texture = ExtResource( 10 )
 script = ExtResource( 2 )
 
 [node name="Tween" type="Tween" parent="Title/Icon"]
 
 [node name="Icon2" type="Sprite" parent="Title"]
-position = Vector2( 707, 0 )
+position = Vector2( 584, 0 )
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="Tween" type="Tween" parent="Title/Icon2"]
 
 [node name="Icon3" type="Sprite" parent="Title"]
-position = Vector2( 804, 0 )
-texture = ExtResource( 1 )
+position = Vector2( 806, 0 )
+texture = ExtResource( 9 )
 script = ExtResource( 2 )
 
 [node name="Tween" type="Tween" parent="Title/Icon3"]
 
 [node name="Icon4" type="Sprite" parent="Title"]
-position = Vector2( 899, 0 )
-texture = ExtResource( 1 )
+position = Vector2( 1032, 0 )
+texture = ExtResource( 7 )
 script = ExtResource( 2 )
 
 [node name="Tween" type="Tween" parent="Title/Icon4"]
 
 [node name="Icon5" type="Sprite" parent="Title"]
-position = Vector2( 987, 0 )
-texture = ExtResource( 1 )
+position = Vector2( 1276, 0 )
+texture = ExtResource( 8 )
 script = ExtResource( 2 )
 
 [node name="Tween" type="Tween" parent="Title/Icon5"]
@@ -97,22 +217,36 @@ __meta__ = {
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -473.0
-margin_bottom = -255.0
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer"]
+margin_left = 728.0
+margin_top = 626.0
+margin_right = 1526.0
+margin_bottom = 1047.0
+rect_scale = Vector2( 0.7, 0.7 )
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="CanvasLayer/CenterContainer"]
-margin_left = 885.0
-margin_top = 66.0
-margin_right = 1035.0
-margin_bottom = 152.0
-custom_fonts/font = SubResource( 3 )
-text = "Start"
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/TextureButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[connection signal="pressed" from="CanvasLayer/CenterContainer/Button" to="." method="_on_Button_pressed"]
+[node name="Label" type="Label" parent="CanvasLayer/TextureButton/CenterContainer"]
+margin_left = 146.0
+margin_top = 67.0
+margin_right = 652.0
+margin_bottom = 354.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="CanvasLayer/TextureButton" to="." method="_on_TextureButton_pressed"]

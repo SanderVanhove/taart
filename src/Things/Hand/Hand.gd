@@ -10,6 +10,8 @@ onready var _visual: Node2D = $Visual
 onready var _slap_timer: Timer = $SlapTimer
 onready var _hit_box: Area2D = $Visual/Hand/Hitbox
 onready var _hand: Node2D = $Visual/Hand
+onready var _normal_hand: Node2D = $Visual/Hand/NormalHand
+onready var _slap_hand: Node2D = $Visual/Hand/SlapHand
 onready var _slap_lines1: Node2D = $Visual/Hand/SlapLines1
 onready var _slap_lines2: Node2D = $Visual/Hand/SlapLines2
 
@@ -47,14 +49,16 @@ func _input(event):
 	
 	is_slapping = true
 	
-	_visual.modulate = Color.red
+	_normal_hand.hide()
+	_slap_hand.show()
 	
 	enable_hitbox()
 	
 	_slap_timer.start()
 	yield(_slap_timer, "timeout")
 	
-	_visual.modulate = Color.white
+	_normal_hand.show()
+	_slap_hand.hide()
 	
 	is_slapping = false
 
