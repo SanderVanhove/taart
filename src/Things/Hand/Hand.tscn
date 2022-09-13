@@ -62,11 +62,12 @@ script = ExtResource( 2 )
 [node name="Visual" type="Node2D" parent="."]
 
 [node name="Arm" type="Sprite" parent="Visual"]
-position = Vector2( 3, 497 )
+position = Vector2( 3, 597 )
 scale = Vector2( -0.217738, 0.478 )
 texture = ExtResource( 3 )
 
 [node name="Hand" type="Node2D" parent="Visual"]
+position = Vector2( 0, 100 )
 
 [node name="NormalHand" type="Sprite" parent="Visual/Hand"]
 position = Vector2( 12, -75.5642 )

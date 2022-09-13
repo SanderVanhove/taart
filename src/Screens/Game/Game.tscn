@@ -66,7 +66,7 @@ wait_time = 0.7
 [node name="Music" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 7 )
-volume_db = -21.646
+volume_db = -20.58
 autoplay = true
 
 [connection signal="slap" from="Hand" to="." method="_on_Hand_slap"]
