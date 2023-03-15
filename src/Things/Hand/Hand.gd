@@ -19,6 +19,7 @@ onready var _slap_audio: RandomStreamPlayer = $SlapAudio
 
 var _target_position: Vector2 = Vector2(1920/2.0, 1080/2.0)
 var _use_gamepad: bool = Input.get_connected_joypads().size() > 0
+var _hand_speed: float = 0
 
 
 func _ready():
@@ -30,7 +31,13 @@ func _process(delta):
 		return
 
 	if _use_gamepad:
-		_target_position += Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down") * 1800 * delta
+		var joy_dir: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+		if joy_dir.length_squared() != 0:
+			_hand_speed = lerp(_hand_speed, 1900, .2)
+		else:
+			_hand_speed = lerp(_hand_speed, 0, .5)
+			
+		_target_position += joy_dir * _hand_speed * delta
 	else:
 		_target_position = get_viewport().get_mouse_position()
 

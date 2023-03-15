@@ -81,6 +81,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Taart"
+config/description="No Description"
 run/main_scene="res://Screens/Splash/SplashScreen.tscn"
 config/icon="res://Things/Taart/concept_taart.png"
 
